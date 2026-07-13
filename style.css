@@ -1,0 +1,127 @@
+/* Базові налаштування для всього сайту */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #F8F4E6; /* Колір світлого тіста */
+    color: #111;
+    overflow-x: hidden; /* Ховаємо горизонтальний скрол */
+}
+
+/* Навігація */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(248, 244, 230, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #E65100; /* Насичений помаранчевий */
+}
+
+.cart-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cart-btn:hover {
+    background: #E65100;
+}
+
+/* Перша секція */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-title {
+    font-size: 6vw;
+    line-height: 1;
+    font-weight: 900;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+.hero-title span {
+    color: #E65100;
+}
+
+.hero-product {
+    width: 250px;
+    height: 400px;
+    background: linear-gradient(45deg, #E65100, #FFB300);
+    border-radius: 120px;
+    margin-top: -40px;
+    z-index: 1;
+    box-shadow: 0 30px 60px rgba(230, 81, 0, 0.3);
+}
+
+/* Друга секція (темна для контрасту) */
+.scroll-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 10vw;
+    gap: 80px;
+    background-color: #111;
+    color: #F8F4E6;
+}
+
+.info-block {
+    max-width: 450px;
+    padding: 40px;
+    background: #222;
+    border-radius: 20px;
+}
+
+.info-left {
+    align-self: flex-start;
+}
+
+.info-right {
+    align-self: flex-end;
+    border: 2px solid #E65100;
+}
+
+.info-block h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #E65100;
+}
+
+.info-block p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ccc;
+}
