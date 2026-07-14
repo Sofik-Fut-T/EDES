@@ -9,10 +9,10 @@ tl.from(".hero-title", {
     duration: 1, 
     ease: "power3.out" 
 })
-.from(".hero-product", { 
-    scale: 0.8, 
+.from(".hero-product-wrapper", { // Анімуємо обгортку, а не саму картинку
+    scale: 0.5, 
     opacity: 0, 
-    duration: 1, 
+    duration: 1.5, 
     ease: "back.out(1.5)" 
 }, "-=0.5");
 
