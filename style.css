@@ -1,15 +1,14 @@
-/* Базові налаштування для всього сайту */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-    background-color: #F8F4E6; /* Колір світлого тіста */
+    background-color: #F8F4E6;
     color: #111;
-    overflow-x: hidden; /* Ховаємо горизонтальний скрол */
+    overflow-x: hidden;
 }
 
 /* Навігація */
@@ -27,14 +26,13 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .logo span {
-    color: #E65100; /* Насичений помаранчевий */
+    color: #E65100;
 }
 
 .cart-btn {
@@ -52,9 +50,9 @@ body {
     background: #E65100;
 }
 
-/* Перша секція */
+/* Перша секція (Світла) */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,70 +60,69 @@ body {
     text-align: center;
     position: relative;
     padding-top: 80px;
+    background-color: #F8F4E6;
+    z-index: 1; /* Нижній шар */
 }
 
 .hero-title {
-    font-size: 6vw;
-    line-height: 1;
+    font-size: 4vw;
+    line-height: 1.2;
     font-weight: 900;
-    z-index: 2;
     text-transform: uppercase;
+    color: #111;
 }
 
 .hero-title span {
     color: #E65100;
+    font-size: 6vw;
 }
 
 .hero-product {
     width: 250px;
-    height: 400px;
+    height: 350px;
     background: linear-gradient(45deg, #E65100, #FFB300);
     border-radius: 120px;
-    margin-top: -40px;
-    z-index: 1;
+    margin-top: 30px;
     box-shadow: 0 30px 60px rgba(230, 81, 0, 0.3);
 }
 
-/* Друга секція (темна для контрасту) */
+/* Друга секція (Темна) */
 .scroll-section {
+    width: 100%; /* Розтягуємо на весь екран */
+    position: relative;
+    z-index: 10; /* Перекриває першу секцію при скролі */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 100px 10vw;
-    gap: 80px;
+    padding: 100px 5vw;
+    gap: 40px;
     background-color: #111;
     color: #F8F4E6;
 }
 
 .info-block {
+    width: 100%;
     max-width: 450px;
     padding: 40px;
     background: #222;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.info-left {
-    align-self: flex-start;
-}
-.info-center {
-    align-self: center;
-    border: 2px solid #FFB300; /* Додамо жовту рамочку для різноманітності */
-}
-
-.info-right {
-    align-self: flex-end;
-    border: 2px solid #E65100;
-}
+.info-left { align-self: flex-start; }
+.info-center { align-self: center; }
+.info-right { align-self: flex-end; }
 
 .info-block h2 {
-    font-size: 32px;
+    font-size: 26px;
     margin-bottom: 15px;
     color: #E65100;
 }
 
 .info-block p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     color: #ccc;
 }
