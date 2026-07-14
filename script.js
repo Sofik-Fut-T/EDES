@@ -1,47 +1,53 @@
-// Реєструємо плагін ScrollTrigger, щоб він працював
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. АНІМАЦІЯ ПРИ ЗАВАНТАЖЕННІ СТОРІНКИ
+// 1. Анімація при завантаженні (Перша секція)
 const tl = gsap.timeline();
 
-// Текст виїжджає знизу (y: 100) і стає видимим
 tl.from(".hero-title", { 
-    y: 100, 
+    y: 50, 
     opacity: 0, 
-    duration: 1.2, 
-    ease: "power4.out" 
+    duration: 1, 
+    ease: "power3.out" 
 })
-// Блок з "кюртошем" збільшується (scale: 0.5)
 .from(".hero-product", { 
-    scale: 0.5, 
+    scale: 0.8, 
     opacity: 0, 
-    duration: 1.5, 
+    duration: 1, 
     ease: "back.out(1.5)" 
-}, "-=0.8"); // Це означає: почати цю анімацію на 0.8 секунд раніше завершення попередньої
+}, "-=0.5");
 
 
-// 2. АНІМАЦІЯ ПРИ ПРОКРУЧУВАННІ СТОРІНКИ (Скролінг)
+// 2. Анімація при скролінгу (Темна секція)
 
-// Лівий блок виїжджає зліва
-gsap.from(".info-left", {
-    scrollTrigger: {
-        trigger: ".scroll-section", // Секція, яка запускає анімацію
-        start: "top 70%", // Анімація стартує, коли верх секції досягає 70% висоти екрану
-    },
-    x: -200, // Починає рух з -200 пікселів по осі X (зліва)
-    opacity: 0,
-    duration: 1.5,
-    ease: "power3.out"
+// Ліві блоки
+gsap.utils.toArray('.info-left').forEach(block => {
+    gsap.from(block, {
+        scrollTrigger: { trigger: block, start: "top 85%" },
+        x: -150, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power3.out"
+    });
 });
 
-// Правий блок виїжджає справа
-gsap.from(".info-right", {
-    scrollTrigger: {
-        trigger: ".scroll-section",
-        start: "top 40%", // Стартує трохи пізніше, коли користувач прокрутить нижче
-    },
-    x: 200, // Починає рух з +200 пікселів по осі X (справа)
-    opacity: 0,
-    duration: 1.5,
-    ease: "power3.out"
+// Центральні блоки
+gsap.utils.toArray('.info-center').forEach(block => {
+    gsap.from(block, {
+        scrollTrigger: { trigger: block, start: "top 85%" },
+        y: 100, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power3.out"
+    });
+});
+
+// Праві блоки
+gsap.utils.toArray('.info-right').forEach(block => {
+    gsap.from(block, {
+        scrollTrigger: { trigger: block, start: "top 85%" },
+        x: 150, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power3.out"
+    });
 });
