@@ -108,6 +108,10 @@ body {
 .info-left {
     align-self: flex-start;
 }
+.info-center {
+    align-self: center;
+    border: 2px solid #FFB300; /* Додамо жовту рамочку для різноманітності */
+}
 
 .info-right {
     align-self: flex-end;
