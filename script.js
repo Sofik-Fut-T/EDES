@@ -30,9 +30,9 @@ const tl = gsap.timeline();
 tl.from(".hero-title", { 
     y: 100, 
     opacity: 0, 
-    duration: 1.2, 
+    duration: 1.5, 
     ease: "power4.out" 
-})
+});
 .from(".hero-product-wrapper", {
     scale: 0.5, 
     opacity: 0, 
