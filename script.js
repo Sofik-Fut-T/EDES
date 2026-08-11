@@ -33,12 +33,6 @@ tl.from(".hero-title", {
     duration: 1.5, 
     ease: "power4.out" 
 });
-.from(".hero-product-wrapper", {
-    scale: 0.5, 
-    opacity: 0, 
-    duration: 1.5, 
-    ease: "back.out(1.5)" 
-}, "-=0.8");
 
 // Додаткова анімація для карток (вони трохи вицвітають, коли на них наїжджає наступна)
 gsap.utils.toArray('.wow-card').forEach((card, index, array) => {
