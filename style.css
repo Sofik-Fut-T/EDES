@@ -1,132 +1,75 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: none; /* Ховаємо стандартний курсор */
-}
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+body { background-color: #F8F4E6; color: #111; overflow-x: hidden; font-family: 'Nunito', sans-serif; }
+h1, h2, h3, .logo, .marquee, .flavor-nav { font-family: 'Montserrat', sans-serif; }
 
-body {
-    background-color: #F8F4E6;
-    color: #111;
-    overflow-x: hidden;
-    font-family: 'Nunito', sans-serif;
-}
-
-h1, h2, h3, .logo, .marquee {
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Кастомний курсор */
-.cursor {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #E65100;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-/* Навігація */
-.navbar {
-    position: fixed;
-    top: 0; width: 100%; padding: 20px 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    z-index: 100;
-    background: rgba(248, 244, 230, 0.8);
-    backdrop-filter: blur(15px); /* Трендове розмиття */
-}
-
+.cursor { width: 30px; height: 30px; border: 2px solid #E65100; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; }
+.navbar { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(248, 244, 230, 0.8); backdrop-filter: blur(15px); }
 .logo { font-size: 32px; font-weight: 900; }
 .logo span { color: #E65100; }
-
-.cart-btn {
-    background: #111; color: #fff; border: none;
-    padding: 12px 28px; border-radius: 30px;
-    font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 16px;
-    transition: 0.3s;
-}
+.cart-btn { background: #111; color: #fff; border: none; padding: 12px 28px; border-radius: 30px; font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 16px; transition: 0.3s; }
 .cart-btn:hover { background: #E65100; transform: scale(1.05); }
 
-/* Перша секція */
-.hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-    background-color: #F8F4E6;
-    position: relative;
-    overflow: hidden; /* Важливо: щоб картинки не вилітали за краї екрану */
+/* ПЛАВАЮЧЕ МЕНЮ */
+.flavor-nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 900;
+    background: rgba(10, 10, 10, 0.8);
+    padding: 25px;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.hero-title {
-    font-size: 5vw; line-height: 1.1; font-weight: 900; text-transform: uppercase;
-    z-index: 10; position: relative;
-    text-shadow: 0 10px 40px rgba(248, 244, 230, 0.9); /* Світіння, щоб текст читався на фоні кюртошів */
+.flavor-nav p {
+    color: #E65100; font-size: 12px; text-transform: uppercase; margin-bottom: 15px; text-align: center; letter-spacing: 1px;
 }
+
+.flavor-link {
+    color: #fff; text-decoration: none; font-size: 14px; padding: 12px 18px; border-radius: 30px; transition: 0.3s; background: rgba(255,255,255,0.05);
+}
+
+.flavor-link:hover {
+    background: #E65100; transform: scale(1.05); color: #fff;
+}
+
+/* Перша секція */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: #F8F4E6; position: relative; overflow: hidden; }
+.hero-title { font-size: 5vw; line-height: 1.1; font-weight: 900; text-transform: uppercase; z-index: 10; position: relative; text-shadow: 0 10px 40px rgba(248, 244, 230, 0.9); }
 .hero-title span { color: #E65100; font-size: 7vw; }
 
-/* МАГІЯ ЛІТАЮЧИХ КЮРТОШІВ */
-.flying-kurtosh-bg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 1; pointer-events: none; /* Щоб не заважали клікати */
-}
-
-.fly-img {
-    position: absolute;
-    bottom: -40%; /* Ховаємо їх під екраном спочатку */
-    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.2));
-}
-
-/* Налаштовуємо кожен кюртош окремо (3D ефект) */
+.flying-kurtosh-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.fly-img { position: absolute; bottom: -40%; filter: drop-shadow(0 20px 20px rgba(0,0,0,0.2)); }
 .k1 { width: 150px; left: 10%; animation: flyUp 12s linear infinite; }
-.k2 { width: 320px; left: 25%; animation: flyUp 20s linear infinite 2s; opacity: 0.5; filter: blur(8px); } /* Великий, розмитий, далеко */
+.k2 { width: 320px; left: 25%; animation: flyUp 20s linear infinite 2s; opacity: 0.5; filter: blur(8px); }
 .k3 { width: 120px; left: 70%; animation: flyUp 15s linear infinite 5s; }
-.k4 { width: 400px; left: 80%; animation: flyUp 25s linear infinite 1s; opacity: 0.3; filter: blur(12px); } /* Дуже далеко */
+.k4 { width: 400px; left: 80%; animation: flyUp 25s linear infinite 1s; opacity: 0.3; filter: blur(12px); }
 .k5 { width: 220px; left: 50%; animation: flyUp 17s linear infinite 8s; opacity: 0.9; filter: blur(2px); }
 .k6 { width: 90px; left: 40%; animation: flyUp 10s linear infinite 12s; }
+@keyframes flyUp { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-150vh) rotate(360deg); } }
 
-/* Сама анімація польоту та обертання */
-@keyframes flyUp {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-150vh) rotate(360deg); }
-}
-
-/* Рухомий рядок (Marquee) */
-.marquee {
-    background: #E65100;
-    color: #fff;
-    padding: 20px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.marquee-content {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-}
+/* Рухомий рядок */
+.marquee { background: #E65100; color: #fff; padding: 20px 0; overflow: hidden; white-space: nowrap; font-size: 24px; font-weight: 900; letter-spacing: 2px; }
+.marquee-content { display: inline-block; animation: marquee 15s linear infinite; }
 .marquee-content span { margin: 0 40px; }
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* Преміум секція з картками */
 .premium-cards-section {
     background-color: #0a0a0a;
-    padding: 100px 5vw 200px 5vw;
+    padding: 100px 250px 300px 5vw; /* Зробили відступ справа (250px), щоб картки не наїжджали на бокове меню */
     position: relative;
 }
 
 .wow-card {
-    position: sticky; /* МАГІЯ ТУТ: Картки залипають! */
-    top: 15vh; /* Відступ від верху, коли картка зупиняється */
+    position: sticky;
     height: 70vh;
-    background: #1a1a1a;
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 40px;
     padding: 60px;
@@ -135,47 +78,22 @@ h1, h2, h3, .logo, .marquee {
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    box-shadow: 0 -20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.7);
     overflow: hidden;
+    scroll-margin-top: 15vh; /* Щоб при кліку в меню скрол зупинявся рівно де треба */
 }
 
-/* Різні відтінки для карток, щоб було видно як вони накладаються */
-#card-1 { top: 15vh; background: #151515; }
-#card-2 { top: 18vh; background: #1f1f1f; }
-#card-3 { top: 21vh; background: #2a2a2a; }
+/* Кожна картка стає трохи нижче, утворюючи красиву "драбинку" */
+#card-1 { top: 12vh; background: #111; }
+#card-2 { top: 15vh; background: #161616; }
+#card-3 { top: 18vh; background: #1c1c1c; }
+#card-4 { top: 21vh; background: #222; }
+#card-5 { top: 24vh; background: #282828; }
+#card-6 { top: 27vh; background: #2e2e2e; }
 
-.card-text {
-    flex: 1;
-    color: #fff;
-}
-
-.card-text h2 {
-    font-size: 3.5rem;
-    color: #E65100;
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
-.card-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #aaa;
-}
-
-.card-img-box {
-    flex: 1;
-    height: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.card-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.wow-card:hover .card-img-box img {
-    transform: scale(1.1); /* Ефект збільшення фото при наведенні */
-}
+.card-text { flex: 1; color: #fff; }
+.card-text h2 { font-size: 3.5rem; color: #E65100; margin-bottom: 20px; line-height: 1.1; }
+.card-text p { font-size: 1.2rem; line-height: 1.6; color: #aaa; }
+.card-img-box { flex: 1; height: 100%; border-radius: 20px; overflow: hidden; }
+.card-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.wow-card:hover .card-img-box img { transform: scale(1.1); }
