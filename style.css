@@ -1,4 +1,3 @@
-/* --- CSS ЗМІННІ (Design System) --- */
 :root {
     --accent: #E65100;
     --bg-light: #F8F4E6;
@@ -10,43 +9,31 @@
     --font-text: 'Nunito', sans-serif;
 }
 
-/* --- БАЗОВІ НАЛАШТУВАННЯ --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; font-family: var(--font-text); }
 h1, h2, h3, .logo, .marquee, .flavor-nav { font-family: var(--font-heading); }
 
-/* --- ЕКРАН ЗАВАНТАЖЕННЯ --- */
-.preloader {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-dark); z-index: 99999;
-    display: flex; justify-content: center; align-items: center;
-}
-.preloader-text {
-    color: var(--accent); font-size: 2rem; font-family: var(--font-heading); font-weight: 900;
-    animation: pulse 1.5s infinite;
-}
+.preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); z-index: 99999; display: flex; justify-content: center; align-items: center; }
+.preloader-text { color: var(--accent); font-size: 2rem; font-weight: 900; animation: pulse 1.5s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.05); } }
 
-/* --- КУРСОР --- */
 .cursor { width: 30px; height: 30px; border: 2px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; }
 
-/* --- НАВІГАЦІЯ --- */
 .navbar { position: fixed; top: 0; width: 100%; padding: 20px 4vw; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(248, 244, 230, 0.85); backdrop-filter: blur(15px); }
 .logo { font-size: 32px; font-weight: 900; }
 .logo span { color: var(--accent); }
-.cart-btn { background: var(--text-dark); color: var(--text-light); border: none; padding: 12px 28px; border-radius: 30px; font-weight: 700; font-family: var(--font-text); font-size: 16px; transition: 0.3s; cursor: pointer; }
+.cart-btn { background: var(--text-dark); color: var(--text-light); border: none; padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 16px; transition: 0.3s; cursor: pointer; }
 .cart-btn:hover { background: var(--accent); transform: scale(1.05); }
 
-/* --- ПЛАВАЮЧЕ МЕНЮ --- */
+/* ПЛАВАЮЧЕ МЕНЮ (ПК) */
 .flavor-nav { position: fixed; right: 2vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 900; background: rgba(10, 10, 10, 0.85); padding: 25px; border-radius: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
 .flavor-nav p { color: var(--accent); font-size: 12px; text-transform: uppercase; margin-bottom: 10px; text-align: center; letter-spacing: 1px; }
 .flavor-link { color: var(--text-light); text-decoration: none; font-size: 14px; padding: 10px 15px; border-radius: 30px; transition: 0.3s; }
 .flavor-link:hover { background: var(--accent); transform: scale(1.05); }
 
-/* --- ГОЛОВНА СЕКЦІЯ --- */
 .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--bg-light); position: relative; overflow: hidden; }
-.hero-content { z-index: 10; position: relative; text-shadow: 0 10px 40px rgba(248, 244, 230, 0.9); }
+.hero-content { z-index: 10; position: relative; padding: 0 15px; text-shadow: 0 10px 40px rgba(248, 244, 230, 0.9); }
 .hero-title { font-size: 5vw; line-height: 1.1; font-weight: 900; text-transform: uppercase; }
 .hero-title span { color: var(--accent); font-size: 7vw; }
 .hero-subtitle { font-size: 1.5rem; font-weight: 600; margin-top: 15px; color: #555; }
@@ -60,13 +47,11 @@ h1, h2, h3, .logo, .marquee, .flavor-nav { font-family: var(--font-heading); }
 .k5 { width: 220px; left: 50%; animation: flyUp 17s linear infinite 8s; opacity: 0.9; filter: blur(2px); }
 @keyframes flyUp { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-150vh) rotate(360deg); } }
 
-/* --- РУХОМИЙ РЯДОК --- */
 .marquee { background: var(--accent); color: var(--text-light); padding: 15px 0; overflow: hidden; white-space: nowrap; font-size: 20px; font-weight: 900; letter-spacing: 2px; }
 .marquee-content { display: inline-block; animation: marquee 15s linear infinite; }
 .marquee-content span { margin: 0 30px; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* --- КАРТКИ --- */
 .premium-cards-section { background-color: var(--bg-dark); padding: 100px 20vw 200px 5vw; position: relative; }
 .wow-card { position: sticky; height: 70vh; border: 1px solid rgba(255,255,255,0.05); border-radius: 40px; padding: 50px; margin-bottom: 50px; display: flex; justify-content: space-between; align-items: center; gap: 50px; box-shadow: 0 -20px 50px rgba(0,0,0,0.7); overflow: hidden; scroll-margin-top: 15vh; will-change: transform, opacity; }
 #card-1 { top: 12vh; background: #111; }
@@ -82,33 +67,46 @@ h1, h2, h3, .logo, .marquee, .flavor-nav { font-family: var(--font-heading); }
 .card-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .wow-card:hover .card-img-box img { transform: scale(1.05); }
 
-/* --- ФУТЕР --- */
-.footer { background: var(--bg-dark); color: var(--text-light); text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer { background: var(--bg-dark); color: var(--text-light); text-align: center; padding: 50px 20px 100px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer p { color: #666; margin-top: 15px; font-size: 0.9rem; }
 
 /* =========================================
-   АДАПТИВНІСТЬ ДЛЯ СМАРТФОНІВ ТА ПЛАНШЕТІВ
+   АДАПТИВНІСТЬ ДЛЯ ТЕЛЕФОНІВ ТА ПЛАНШЕТІВ
    ========================================= */
+
+/* Планшети */
 @media (max-width: 1024px) {
-    .premium-cards-section { padding: 80px 5vw; } /* Прибираємо великий відступ справа */
-    .flavor-nav { display: none; } /* Ховаємо бокове меню на планшетах */
+    .premium-cards-section { padding: 80px 5vw; }
     .wow-card { flex-direction: column; height: auto; padding: 40px; text-align: center; }
     .card-img-box { width: 100%; height: 300px; margin-top: 30px; }
     .card-text h2 { font-size: 2.5rem; }
 }
 
+/* Телефони */
 @media (max-width: 768px) {
-    /* Вимикаємо кастомний курсор на тач-пристроях */
     body { cursor: auto; }
     .cursor { display: none !important; }
     
-    .hero-title { font-size: 12vw; }
-    .hero-title span { font-size: 14vw; }
-    .hero-subtitle { font-size: 1.2rem; }
+    /* ВИПРАВЛЕННЯ ТЕКСТУ: тепер він точно влізе */
+    .hero-title { font-size: 8vw; word-break: break-word; }
+    .hero-title span { font-size: 10.5vw; }
+    .hero-subtitle { font-size: 1rem; }
     
-    /* Відключаємо sticky ефект на телефонах для кращого скролу */
     .wow-card { position: relative; top: 0 !important; margin-bottom: 30px; border-radius: 24px; padding: 30px 20px; }
     .card-text h2 { font-size: 2rem; }
     .card-img-box { height: 250px; }
     .marquee { font-size: 16px; padding: 10px 0; }
+    
+    /* ВИПРАВЛЕННЯ МЕНЮ: Горизонтальне меню знизу екрана для пальців */
+    .flavor-nav {
+        display: flex; flex-direction: row; top: auto; bottom: 0; right: 0; width: 100%;
+        transform: none; border-radius: 20px 20px 0 0; padding: 15px 10px;
+        overflow-x: auto; white-space: nowrap; background: rgba(10, 10, 10, 0.95);
+        border-top: 1px solid rgba(255,255,255,0.1); border-left: none; border-right: none; border-bottom: none;
+    }
+    .flavor-nav p { display: none; } /* Ховаємо слово "Обери смак", щоб було більше місця */
+    .flavor-link { font-size: 14px; padding: 8px 15px; flex-shrink: 0; margin-right: 5px; }
+    
+    .navbar { padding: 15px 4vw; }
+    .logo { font-size: 24px; }
 }
