@@ -3,105 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Найсмачніші кюртоші | ÉDES</title>
+    <meta name="description" content="Найсмачніші справжні кюртоші. 10+ смаків, свіжа випічка, натуральні інгредієнти.">
+    <title>ÉDES | Преміальні Кюртоші</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="preloader">
+        <div class="preloader-text">Розігріваємо печі...</div>
+    </div>
+
     <div class="cursor"></div>
 
-    <nav class="navbar">
+    <header class="navbar">
         <div class="logo"><span>ÉDES</span></div>
         <button class="cart-btn">Кошик (0)</button>
-    </nav>
+    </header>
 
-    <div class="flavor-nav">
+    <nav class="flavor-nav">
         <p>Обери смак</p>
         <a href="#card-1" class="flavor-link">🔥 Класика</a>
-        <a href="#card-2" class="flavor-link">🍫 Шоколадний Бум</a>
-        <a href="#card-3" class="flavor-link">🥥 Кокосовий Рай</a>
-        <a href="#card-4" class="flavor-link">🍯 Солона Карамель</a>
-        <a href="#card-5" class="flavor-link">🥜 Горіховий Кранч</a>
-        <a href="#card-6" class="flavor-link">☕ До Кави</a>
-    </div>
+        <a href="#card-2" class="flavor-link">🍫 Шоколад</a>
+        <a href="#card-3" class="flavor-link">🥥 Кокос</a>
+        <a href="#card-4" class="flavor-link">🍯 Карамель</a>
+        <a href="#card-5" class="flavor-link">🥜 Горіх</a>
+    </nav>
 
-    <section class="hero">
-        <div class="flying-kurtosh-bg">
-            <img src="hero-kurtos.png" class="fly-img k1" alt="">
-            <img src="hero-kurtos.png" class="fly-img k2" alt="">
-            <img src="hero-kurtos.png" class="fly-img k3" alt="">
-            <img src="hero-kurtos.png" class="fly-img k4" alt="">
-            <img src="hero-kurtos.png" class="fly-img k5" alt="">
-            <img src="hero-kurtos.png" class="fly-img k6" alt="">
-        </div>
-        <h1 class="hero-title">Кюртоші якими ти <br><span>НАСОЛОДИШСЯ</span></h1>
-    </section>
-
-    <div class="marquee">
-        <div class="marquee-content">
-            <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
-            <span>✨ 10+ СМАКІВ</span>
-            <span>🤤 ХРУСТКА СКОРИНКА</span>
-            <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
-            <span>✨ 10+ СМАКІВ</span>
-            <span>🤤 ХРУСТКА СКОРИНКА</span>
-        </div>
-    </div>
-        
-    <section class="premium-cards-section">
-        
-        <div class="wow-card" id="card-1">
-            <div class="card-text">
-                <h2>Класична кориця</h2>
-                <p>Нічого зайвого. Тільки хрустка карамелізована скоринка та ароматна кориця, яка повертає у дитинство.</p>
+    <main>
+        <section class="hero">
+            <div class="flying-kurtosh-bg">
+                <img src="hero-kurtos.png" class="fly-img k1" alt="">
+                <img src="hero-kurtos.png" class="fly-img k2" alt="">
+                <img src="hero-kurtos.png" class="fly-img k3" alt="">
+                <img src="hero-kurtos.png" class="fly-img k4" alt="">
+                <img src="hero-kurtos.png" class="fly-img k5" alt="">
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Кориця"></div>
-        </div>
-
-        <div class="wow-card" id="card-2">
-            <div class="card-text">
-                <h2>Шоколадний Бум</h2>
-                <p>Щедра порція справжньої Nutella всередині та зовні. Для тих, хто не уявляє свого життя без шоколаду.</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Кюртоші якими ти <br><span>НАСОЛОДИШСЯ</span></h1>
+                <p class="hero-subtitle">Свіжоспечені. Гарячі. Твої.</p>
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=800&q=80" alt="Шоколад"></div>
-        </div>
+        </section>
 
-        <div class="wow-card" id="card-3">
-            <div class="card-text">
-                <h2>Кокосовий Рай</h2>
-                <p>Ніжна кокосова стружка, яка тане у роті, у поєднанні з гарячим, пухким тістом.</p>
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
+                <span>✨ 10+ СМАКІВ</span>
+                <span>🤤 ХРУСТКА СКОРИНКА</span>
+                <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
+                <span>✨ 10+ СМАКІВ</span>
+                <span>🤤 ХРУСТКА СКОРИНКА</span>
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Кокос"></div>
         </div>
-
-        <div class="wow-card" id="card-4">
-            <div class="card-text">
-                <h2>Солона Карамель</h2>
-                <p>Ідеальний баланс солодкого та солоного. Густа домашня карамель з дрібкою морської солі.</p>
+            
+        <section class="premium-cards-section">
+            
+            <div class="wow-card" id="card-1">
+                <div class="card-text">
+                    <h2>Класична кориця</h2>
+                    <p>Нічого зайвого. Тільки хрустка карамелізована скоринка та ароматна кориця, яка повертає у дитинство.</p>
+                </div>
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Кориця" loading="lazy"></div>
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80" alt="Карамель"></div>
-        </div>
 
-        <div class="wow-card" id="card-5">
-            <div class="card-text">
-                <h2>Горіховий Кранч</h2>
-                <p>Мікс обсмажених волоських горіхів та фундука для максимального хрускоту.</p>
+            <div class="wow-card" id="card-2">
+                <div class="card-text">
+                    <h2>Шоколадний Бум</h2>
+                    <p>Щедра порція справжньої Nutella всередині та зовні. Для тих, хто не уявляє свого життя без шоколаду.</p>
+                </div>
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=800&q=80" alt="Шоколад" loading="lazy"></div>
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1590080826444-2ab74ce7a9e3?auto=format&fit=crop&w=800&q=80" alt="Горіх"></div>
-        </div>
 
-        <div class="wow-card" id="card-6">
-            <div class="card-text">
-                <h2>Ідеальна пара до кави</h2>
-                <p>Гарячий кюртош та чашечка ароматної 100% арабіки — ваш найкращий спосіб зробити день яскравішим.</p>
+            <div class="wow-card" id="card-3">
+                <div class="card-text">
+                    <h2>Кокосовий Рай</h2>
+                    <p>Ніжна кокосова стружка, яка тане у роті, у поєднанні з гарячим, пухким тістом.</p>
+                </div>
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Кокос" loading="lazy"></div>
             </div>
-            <div class="card-img-box"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" alt="Кава"></div>
-        </div>
 
-    </section>
+            <div class="wow-card" id="card-4">
+                <div class="card-text">
+                    <h2>Солона Карамель</h2>
+                    <p>Ідеальний баланс солодкого та солоного. Густа домашня карамель з дрібкою морської солі.</p>
+                </div>
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80" alt="Карамель" loading="lazy"></div>
+            </div>
+
+            <div class="wow-card" id="card-5">
+                <div class="card-text">
+                    <h2>Горіховий Кранч</h2>
+                    <p>Мікс обсмажених волоських горіхів та фундука для максимального хрускоту.</p>
+                </div>
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1590080826444-2ab74ce7a9e3?auto=format&fit=crop&w=800&q=80" alt="Горіх" loading="lazy"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="logo"><span>ÉDES</span></div>
+        <p>© 2024 Всі права захищено. Створено з любов'ю до випічки.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
