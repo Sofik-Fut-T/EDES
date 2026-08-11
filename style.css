@@ -54,24 +54,42 @@ h1, h2, h3, .logo, .marquee {
 .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-    padding-top: 100px; background-color: #F8F4E6;
+    background-color: #F8F4E6;
+    position: relative;
+    overflow: hidden; /* Важливо: щоб картинки не вилітали за краї екрану */
 }
 
 .hero-title {
-    font-size: 4.5vw; line-height: 1.1; font-weight: 900; text-transform: uppercase; margin-bottom: 20px;
+    font-size: 5vw; line-height: 1.1; font-weight: 900; text-transform: uppercase;
+    z-index: 10; position: relative;
+    text-shadow: 0 10px 40px rgba(248, 244, 230, 0.9); /* Світіння, щоб текст читався на фоні кюртошів */
 }
-.hero-title span { color: #E65100; font-size: 6.5vw; }
+.hero-title span { color: #E65100; font-size: 7vw; }
 
-.hero-product {
-    width: 380px; height: auto; margin-top: 10px;
-    filter: drop-shadow(0px 30px 20px rgba(0,0,0,0.3));
-    animation: float 4s ease-in-out infinite;
+/* МАГІЯ ЛІТАЮЧИХ КЮРТОШІВ */
+.flying-kurtosh-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; pointer-events: none; /* Щоб не заважали клікати */
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-25px) scale(1.02); }
-    100% { transform: translateY(0px); }
+.fly-img {
+    position: absolute;
+    bottom: -40%; /* Ховаємо їх під екраном спочатку */
+    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.2));
+}
+
+/* Налаштовуємо кожен кюртош окремо (3D ефект) */
+.k1 { width: 150px; left: 10%; animation: flyUp 12s linear infinite; }
+.k2 { width: 320px; left: 25%; animation: flyUp 20s linear infinite 2s; opacity: 0.5; filter: blur(8px); } /* Великий, розмитий, далеко */
+.k3 { width: 120px; left: 70%; animation: flyUp 15s linear infinite 5s; }
+.k4 { width: 400px; left: 80%; animation: flyUp 25s linear infinite 1s; opacity: 0.3; filter: blur(12px); } /* Дуже далеко */
+.k5 { width: 220px; left: 50%; animation: flyUp 17s linear infinite 8s; opacity: 0.9; filter: blur(2px); }
+.k6 { width: 90px; left: 40%; animation: flyUp 10s linear infinite 12s; }
+
+/* Сама анімація польоту та обертання */
+@keyframes flyUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-150vh) rotate(360deg); }
 }
 
 /* Рухомий рядок (Marquee) */
