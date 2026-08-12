@@ -1,114 +1,90 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Найсмачніші справжні кюртоші. 10+ смаків, свіжа випічка, натуральні інгредієнти.">
-    <title>ÉDES | Преміальні Кюртоші</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <h2>ОБЕРИ СВІЙ <span>СМАК</span></h2>
+    <p>Свіжоспечені, гарячі та неймовірно ароматні кюртоші</p>
+  </div>
 
-    <div class="preloader">
-        <div class="preloader-text">Розігріваємо печі...</div>
+  <div class="category-bar">
+    <button class="cat-btn active" onclick="filterCategory('all', this)">🔥 Всі</button>
+    <button class="cat-btn" onclick="filterCategory('limited', this)">🍫 Лімітовані</button>
+    <button class="cat-btn" onclick="filterCategory('strawberry', this)">🍓 Полуниця в шоколаді</button>
+    <button class="cat-btn" onclick="filterCategory('classic', this)">🥨 Класичні</button>
+    <button class="cat-btn" onclick="filterCategory('drinks', this)">☕️ Напої</button>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card" data-cat="limited">
+      <div class="product-img-wrapper">
+        <span class="badge">TOP</span>
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Кюртош Манго-маракуйя">
+      </div>
+      <div class="product-details">
+        <h3>Кюртош Манго-маракуйя</h3>
+        <p class="product-desc">Ніжна кокосова стружка, кислинка лимонної пудри та насичений соус манго-маракуйя.</p>
+        <div class="product-bottom">
+          <span class="price">150 ₴</span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
     </div>
 
-    <div class="cursor"></div>
-
-    <header class="navbar">
-        <div class="logo"><span>ÉDES</span></div>
-        <button class="cart-btn">Кошик (0)</button>
-    </header>
-
-    <nav class="flavor-nav">
-        <p>Обери смак</p>
-        <a href="#card-1" class="flavor-link">🔥 Класика</a>
-        <a href="#card-2" class="flavor-link">🍫 Шоколад</a>
-        <a href="#card-3" class="flavor-link">🥥 Кокос</a>
-        <a href="#card-4" class="flavor-link">🍯 Карамель</a>
-        <a href="#card-5" class="flavor-link">🥜 Горіх</a>
-    </nav>
-
-    <main>
-        <section class="hero">
-            <div class="flying-kurtosh-bg">
-                <img src="https://png2.cleanpng.com/sh/2dcce509d3b16ed6a2082f4ffea332be/L0KzQYm3VMI0N5DoiZH0aYP2gLBuTfNwdaFmgeY2aXXydbb7ifkudZ5uReJucj3rgrLskgRieqRyiN5yYX7qPcHsjwNtdKN0iJ9saX73Pcfskr02aWI8TqI8NEO8QIS7VcEyQGc9T6UEMkS2QoW1U8U1QWQ4TKc3cbi1PsH1h10=/transparent-food-cinnamon-roll-baked-goods-pastry-danish-pastr-5d3cbe76823c10.3601552515642620065335.png" class="fly-img k1" alt="">
-                <img src="https://png2.cleanpng.com/sh/2dcce509d3b16ed6a2082f4ffea332be/L0KzQYm3VMI0N5DoiZH0aYP2gLBuTfNwdaFmgeY2aXXydbb7ifkudZ5uReJucj3rgrLskgRieqRyiN5yYX7qPcHsjwNtdKN0iJ9saX73Pcfskr02aWI8TqI8NEO8QIS7VcEyQGc9T6UEMkS2QoW1U8U1QWQ4TKc3cbi1PsH1h10=/transparent-food-cinnamon-roll-baked-goods-pastry-danish-pastr-5d3cbe76823c10.3601552515642620065335.png" class="fly-img k2" alt="">
-                <img src="https://png2.cleanpng.com/sh/2dcce509d3b16ed6a2082f4ffea332be/L0KzQYm3VMI0N5DoiZH0aYP2gLBuTfNwdaFmgeY2aXXydbb7ifkudZ5uReJucj3rgrLskgRieqRyiN5yYX7qPcHsjwNtdKN0iJ9saX73Pcfskr02aWI8TqI8NEO8QIS7VcEyQGc9T6UEMkS2QoW1U8U1QWQ4TKc3cbi1PsH1h10=/transparent-food-cinnamon-roll-baked-goods-pastry-danish-pastr-5d3cbe76823c10.3601552515642620065335.png" class="fly-img k3" alt="">
-                <img src="https://png2.cleanpng.com/sh/2dcce509d3b16ed6a2082f4ffea332be/L0KzQYm3VMI0N5DoiZH0aYP2gLBuTfNwdaFmgeY2aXXydbb7ifkudZ5uReJucj3rgrLskgRieqRyiN5yYX7qPcHsjwNtdKN0iJ9saX73Pcfskr02aWI8TqI8NEO8QIS7VcEyQGc9T6UEMkS2QoW1U8U1QWQ4TKc3cbi1PsH1h10=/transparent-food-cinnamon-roll-baked-goods-pastry-danish-pastr-5d3cbe76823c10.3601552515642620065335.png" class="fly-img k4" alt="">
-                <img src="https://png2.cleanpng.com/sh/2dcce509d3b16ed6a2082f4ffea332be/L0KzQYm3VMI0N5DoiZH0aYP2gLBuTfNwdaFmgeY2aXXydbb7ifkudZ5uReJucj3rgrLskgRieqRyiN5yYX7qPcHsjwNtdKN0iJ9saX73Pcfskr02aWI8TqI8NEO8QIS7VcEyQGc9T6UEMkS2QoW1U8U1QWQ4TKc3cbi1PsH1h10=/transparent-food-cinnamon-roll-baked-goods-pastry-danish-pastr-5d3cbe76823c10.3601552515642620065335.png" class="fly-img k5" alt="">
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">Кюртоші якими ти <br><span>НАСОЛОДИШСЯ</span></h1>
-                <p class="hero-subtitle">Свіжоспечені. Гарячі. Твої.</p>
-            </div>
-        </section>
-
-        <div class="marquee">
-            <div class="marquee-content">
-                <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
-                <span>✨ 10+ СМАКІВ</span>
-                <span>🤤 ХРУСТКА СКОРИНКА</span>
-                <span>🔥 СВІЖОСПЕЧЕНІ КЮРТОШІ</span>
-                <span>✨ 10+ СМАКІВ</span>
-                <span>🤤 ХРУСТКА СКОРИНКА</span>
-            </div>
+    <div class="product-card" data-cat="strawberry">
+      <div class="product-img-wrapper">
+        <span class="badge new">NEW</span>
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Полуниця Oreo maxi">
+      </div>
+      <div class="product-details">
+        <h3>Полуниця Oreo maxi</h3>
+        <p class="product-desc">Свіжа полуниця, ніжний крем, хрустка крихта Oreo та насичений темний шоколад.</p>
+        <div class="product-bottom">
+          <span class="price">300 ₴</span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
         </div>
-            
-        <section class="premium-cards-section">
-            <div class="wow-card" id="card-1">
-                <div class="card-text">
-                    <h2>Класична кориця</h2>
-                    <p>Нічого зайвого. Тільки хрустка карамелізована скоринка та ароматна кориця, яка повертає у дитинство.</p>
-                </div>
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Кориця" loading="lazy"></div>
-            </div>
+      </div>
+    </div>
 
-            <div class="wow-card" id="card-2">
-                <div class="card-text">
-                    <h2>Шоколадний Бум</h2>
-                    <p>Щедра порція справжньої Nutella всередині та зовні. Для тих, хто не уявляє свого життя без шоколаду.</p>
-                </div>
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=800&q=80" alt="Шоколад" loading="lazy"></div>
-            </div>
+    <div class="product-card" data-cat="strawberry">
+      <div class="product-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?auto=format&fit=crop&w=600&q=80" alt="Полуниця Дубайський шоколад">
+      </div>
+      <div class="product-details">
+        <h3>Дубайський шоколад</h3>
+        <p class="product-desc">Соковита полуниця, фісташкова паста, хрусткі нитки катаїфі та молочний шоколад.</p>
+        <div class="product-bottom">
+          <span class="price">270 ₴</span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
 
-            <div class="wow-card" id="card-3">
-                <div class="card-text">
-                    <h2>Кокосовий Рай</h2>
-                    <p>Ніжна кокосова стружка, яка тане у роті, у поєднанні з гарячим, пухким тістом.</p>
-                </div>
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Кокос" loading="lazy"></div>
-            </div>
+    <div class="product-card" data-cat="classic">
+      <div class="product-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Класична кориця">
+      </div>
+      <div class="product-details">
+        <h3>Класична Кориця & Цукор</h3>
+        <p class="product-desc">Традиційний угорський рецепт: хрустка карамельна скоринка з запашною корицею.</p>
+        <div class="product-bottom">
+          <span class="price">110 ₴</span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
 
-            <div class="wow-card" id="card-4">
-                <div class="card-text">
-                    <h2>Солона Карамель</h2>
-                    <p>Ідеальний баланс солодкого та солоного. Густа домашня карамель з дрібкою морської солі.</p>
-                </div>
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80" alt="Карамель" loading="lazy"></div>
-            </div>
+    <div class="product-card" data-cat="classic">
+      <div class="product-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" alt="Кюртош Nutella">
+      </div>
+      <div class="product-details">
+        <h3>Кюртош з Nutella та горіхами</h3>
+        <p class="product-desc">Щедрий шар оригінальної Nutella всередині та подрібнений обсмажений фундук ззовні.</p>
+        <div class="product-bottom">
+          <span class="price">140 ₴</span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
 
-            <div class="wow-card" id="card-5">
-                <div class="card-text">
-                    <h2>Горіховий Кранч</h2>
-                    <p>Мікс обсмажених волоських горіхів та фундука для максимального хрускоту.</p>
-                </div>
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1590080826444-2ab74ce7a9e3?auto=format&fit=crop&w=800&q=80" alt="Горіх" loading="lazy"></div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="logo"><span>ÉDES</span></div>
-        <p>© 2026 Всі права захищено. Створено з любов'ю до випічки.</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
-
-</body>
-</html>
+  </div>
+</section>
