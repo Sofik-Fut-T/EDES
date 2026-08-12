@@ -1,72 +1,34 @@
-// 1. ПРЕЛОАДЕР (Запуск анімацій тільки після завантаження сторінки)
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    
-    // Плавно ховаємо прелоадер
-    gsap.to(preloader, {
-        opacity: 0,
-        duration: 0.8,
-        onComplete: () => {
-            preloader.style.display = 'none';
-            initAnimations(); // Запускаємо магію сайту
+// Фільтрація за категоріями
+function filterCategory(category, button) {
+    // Змінюємо активну кнопку
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Фільтруємо картки
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-cat') === category) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
         }
     });
-});
+}
 
-// Головна функція з усіма анімаціями
-function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Анімація появи головного екрана
-    const tl = gsap.timeline();
-    tl.from(".hero-content", { y: 50, opacity: 0, duration: 1.2, ease: "power4.out" });
-
-    // Перевіряємо, чи це НЕ телефон (щоб увімкнути курсор і накладання карток)
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    if (!isTouchDevice) {
-        // Кастомний курсор
-        const cursor = document.querySelector('.cursor');
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
-        });
-
-        const hoverElements = document.querySelectorAll('button, .flavor-link');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                gsap.to(cursor, { width: 50, height: 50, backgroundColor: "rgba(230, 81, 0, 0.3)", border: "none" });
-            });
-            el.addEventListener('mouseleave', () => {
-                gsap.to(cursor, { width: 30, height: 30, backgroundColor: "transparent", border: "2px solid #E65100" });
-            });
-        });
-
-        // Анімація затемнення карток (тільки для ПК)
-        gsap.utils.toArray('.wow-card').forEach((card, index, array) => {
-            if (index !== array.length - 1) { 
-                gsap.to(card, {
-                    scale: 0.95, 
-                    opacity: 0.3, 
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 12vh", 
-                        end: "bottom 12vh", 
-                        scrub: true, 
-                    }
-                });
-            }
-        });
+// Лічильник товарів у кошику
+let cartCount = 0;
+function addToCart(btn) {
+    cartCount++;
+    
+    // Оновлюємо текст у шапці (кнопка Кошик)
+    const cartBtn = document.querySelector('.cart-btn');
+    if (cartBtn) {
+        cartBtn.textContent = `Кошик (${cartCount})`;
     }
 
-    // Плавний скрол для бокового меню
-    document.querySelectorAll('.flavor-link').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-    
-    // Оновлюємо тригери, якщо змінився розмір екрану
-    ScrollTrigger.refresh();
+    // Невелика анімація кнопки при натисканні
+    btn.style.transform = 'scale(1.3)';
+    setTimeout(() => {
+        btn.style.transform = 'none';
+    }, 200);
 }
